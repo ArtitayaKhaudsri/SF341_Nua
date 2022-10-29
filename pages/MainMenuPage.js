@@ -1,34 +1,50 @@
 import React, {useState} from 'react';
-import { View, Text, Button, StyleSheet, Image, TextInput, TouchableOpacity, ImageBackground, ScrollView} from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
 
 
-
-
 const MainMenuPage = () => {
 
     const navigation = useNavigation();
-
-    const [liked, setLiked] = useState(false);
-    
-    
-  //  const isLiked = () => {
-  //     setLiked(!liked)
-  //   }
 
     return (
     <SafeAreaView style={styles.container}>
         
         <Image source={require('../assets/Logo_red.png')} style={styles.logo}/>
-        <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF"}} />
-
 
         
+        <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF"}} /> 
+        <View style={styles.topNavigatorView}>
+          <TouchableOpacity>
+            <Text style={styles.topTextSelected}>ทั้งหมด</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={styles.topTextNormal}>ต้ม</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={styles.topTextNormal}>ผัด</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={styles.topTextNormal}>ทอด</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text style={styles.topTextNormal}>อื่น ๆ</Text>
+          </TouchableOpacity>
+
+        </View>
+        <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF", marginBottom: 30}}/> 
+
+
+       
         <ScrollView>
-          <RecipeLabel
+          <RecipeLabel 
           difficult={2}
           pic= {require('../assets/food/kaomankai.png')}
           title="ข้าวมันไก่"
@@ -74,22 +90,22 @@ const MainMenuPage = () => {
           />
       </ScrollView>
 
-      <View style={styles.bottomView}>
+      {/* Bottom navigator */}
+      <View style={styles.bottomNavigatorView}>
         <TouchableOpacity>
-        <Octicon name={"home"} color="#fff" size={23} style={{marginTop: 20}}/>
-        {/*<Image source={require('../assets/main icon/cooking.png')} style={{width: 25, height: 25, marginTop: 20}}/>*/}
+        <Image source={require('../assets/home-fill.png')} style={{width: 20, height: 20, marginTop: 20}}/>
         </TouchableOpacity>
 
         <TouchableOpacity>
-        <Image source={require('../assets/main icon/cooking.png')} style={{width: 25, height: 25,marginTop: 20, backgroundColor: "#fdfd"}}/>
+        <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
         <TouchableOpacity>
-        <Octicon name={"heart"} color="#fff" size={23} style={{marginTop: 20}}/>
+        <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
         <TouchableOpacity>
-        <Octicon name={"person"} color="#fff" size={23} style={{marginTop: 20}}/>
+        <Octicon name={"person"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
       </View>
@@ -146,15 +162,32 @@ const MainMenuPage = () => {
     flexDirection: "row",
     marginTop: 7,
   },
-  bottomView: {
+  topNavigatorView: {
     flew: 1,
     width: '100%',
-    height: 80,
+    height: 50,
+    justifyContent: 'space-evenly',
+    flexDirection: 'row',
+    alignItems: "center"
+  },
+  topTextNormal: {
+    color: "#C7C7C7"
+  },
+  topTextSelected: {
+    color: "#5A9E7C"
+  },
+  bottomNavigatorView: {
+    flew: 1,
+    width: '100%',
+    height: 65,
     backgroundColor: '#C21010',
     position: 'absolute',
     bottom: 0,
     justifyContent: 'space-evenly',
     flexDirection: 'row'
+  },
+  bottomNavigatorIcon: {
+    marginTop: 20
   }
   });
   
