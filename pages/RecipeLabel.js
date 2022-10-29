@@ -208,6 +208,7 @@ const styles = StyleSheet.create({
     detailStyle: {
       flexDirection: "row",
       marginTop: 7,
+      justifyContent: 'space-between'
       
     }
     });

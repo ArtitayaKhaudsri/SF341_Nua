@@ -3,7 +3,7 @@ import { View, Text, Button, StyleSheet, Image, TextInput, TouchableOpacity, Ima
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
-import { NavigationContainer } from '@react-navigation/native';
+import Octicon from 'react-native-vector-icons/Octicons';
 
 
 
@@ -72,11 +72,28 @@ const MainMenuPage = () => {
           time="~30 นาที"
           allergy="หมู"
           />
-          
-           
-
-           
       </ScrollView>
+
+      <View style={styles.bottomView}>
+        <TouchableOpacity>
+        <Octicon name={"home"} color="#fff" size={23} style={{marginTop: 20}}/>
+        {/*<Image source={require('../assets/main icon/cooking.png')} style={{width: 25, height: 25, marginTop: 20}}/>*/}
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Image source={require('../assets/main icon/cooking.png')} style={{width: 25, height: 25,marginTop: 20, backgroundColor: "#fdfd"}}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Octicon name={"heart"} color="#fff" size={23} style={{marginTop: 20}}/>
+        </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Octicon name={"person"} color="#fff" size={23} style={{marginTop: 20}}/>
+        </TouchableOpacity>
+
+      </View>
+
     </SafeAreaView>    
       
     );
@@ -128,7 +145,16 @@ const MainMenuPage = () => {
   detailStyle: {
     flexDirection: "row",
     marginTop: 7,
-    
+  },
+  bottomView: {
+    flew: 1,
+    width: '100%',
+    height: 80,
+    backgroundColor: '#C21010',
+    position: 'absolute',
+    bottom: 0,
+    justifyContent: 'space-evenly',
+    flexDirection: 'row'
   }
   });
   
