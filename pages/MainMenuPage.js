@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
+import TopNavigator from './TopNavigator';
 
 
 const MainMenuPage = () => {
@@ -16,29 +17,8 @@ const MainMenuPage = () => {
         <Image source={require('../assets/Logo_red.png')} style={styles.logo}/>
 
         
-        <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF"}} /> 
-        <View style={styles.topNavigatorView}>
-          <TouchableOpacity>
-            <Text style={styles.topTextSelected}>ทั้งหมด</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text style={styles.topTextNormal}>ต้ม</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text style={styles.topTextNormal}>ผัด</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text style={styles.topTextNormal}>ทอด</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text style={styles.topTextNormal}>อื่น ๆ</Text>
-          </TouchableOpacity>
-
-        </View>
+        <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF"}}/> 
+        <TopNavigator selected = '1'/>
         <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF", marginBottom: 30}}/> 
 
 
@@ -161,20 +141,6 @@ const MainMenuPage = () => {
   detailStyle: {
     flexDirection: "row",
     marginTop: 7,
-  },
-  topNavigatorView: {
-    flew: 1,
-    width: '100%',
-    height: 50,
-    justifyContent: 'space-evenly',
-    flexDirection: 'row',
-    alignItems: "center"
-  },
-  topTextNormal: {
-    color: "#C7C7C7"
-  },
-  topTextSelected: {
-    color: "#5A9E7C"
   },
   bottomNavigatorView: {
     flew: 1,
