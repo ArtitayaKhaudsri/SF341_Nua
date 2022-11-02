@@ -1,19 +1,22 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Octicon from 'react-native-vector-icons/Octicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import { SafeAreaView } from 'react-navigation';
+
 
 const LoginPage = () => {
 
   const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
           <Image source={require('../assets/Logo_white.png')} style={styles.logo} />
           
+
+          {/* Input username & Password */}
           <View style={styles.inputView}>
             <Octicon style={styles.setIcon} name="person" size={20} color="#C7C7C7"/> 
             <TextInput  
@@ -35,11 +38,14 @@ const LoginPage = () => {
             <Text style = {{marginLeft: 70, color: "#CFE8A9", fontSize: 13}}>Forgot password?</Text>
           </TouchableOpacity>
 
+          {/* button to Main Page */}
           <TouchableOpacity style={styles.loginBttn} onPress = {() => navigation.navigate('MainMenuPage', {})}>
             <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Login</Text>
           </TouchableOpacity>
 
-          <View style={{alignItems: "center", flexDirection: 'row', justifyContent: "center", marginVertical: 25}}>
+          
+           {/* ตรงส่วนปุ่มเชื่อมกับ google account ถ้าไม่ใช้แล้วแน่ ๆ ก็ลบออกได้เลย */}
+          {/* <View style={{alignItems: "center", flexDirection: 'row', justifyContent: "center", marginVertical: 25}}>
           <View style={{width: "33%", height: 1, backgroundColor: "#FF6464"}} />
           <View>
           <Text style={{width: 40, textAlign: "center", color: "#FF6464", fontSize: 13}}>OR</Text>
@@ -52,8 +58,10 @@ const LoginPage = () => {
             <FontAwesome name="google" size={18} color="#fff"/>
             <Text style={{color: "#fff", fontWeight: "500", marginLeft: 10}}>Login with Google account</Text>
           </TouchableOpacity>
-          </View>
+          </View> */}
 
+
+          {/* Create an account (button to register page) */}
           <View style={styles.bottomContainer}>
               <Text style={{color: "#CFE8A9", fontWeight: "400"}}>Don't have an account?</Text>
             <TouchableOpacity style={{marginLeft: 7}} onPress = {() => navigation.navigate('RegisterPage', {})}> 
@@ -134,7 +142,8 @@ bottomContainer: {
   marginBottom: 40,
   alignItems: "flex-end",
   flexDirection: "row"
-}
+},
+
 });
 
 export default LoginPage

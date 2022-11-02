@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native'
-import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
@@ -9,32 +8,42 @@ import TopNavigator from './TopNavigator';
 
 const MainMenuPage = () => {
 
-    const navigation = useNavigation();
-
     return (
     <SafeAreaView style={styles.container}>
         
         <Image source={require('../assets/Logo_red.png')} style={styles.logo}/>
 
-        
+        {/* Category Navigation tab */}
         <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF"}}/> 
         <TopNavigator selected = '1'/>
         <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF", marginBottom: 30}}/> 
 
 
-       
+        {/* Recipe order 
+            แต่ละ Recipe จะรับค่าข้อมูลเข้าไปใส่ใน component ที่อยู่อีกไฟล์ (RecipeLabel.js)
+            difficult={ระดับความยาก มี 3 ระดับ (1, 2, 3)}
+            toPage = "ชื่อหน้าที่จะลิงค์ไป"
+            pic= {ที่อยู่รูปภาพ}
+            title="ชื่ออาหาร"
+            description="คำอธิบายสั้น ๆ เกี่ยวกับอาหาร"
+            time="เวลาโดยประมาณที่ใช้ในการทำอาหาร"
+            allergy="อาหารที่แพ้ ไม่มีใส่ -"
+        */}
+        
         <ScrollView>
           <RecipeLabel 
           difficult={2}
+          toPage = "LoginPage"
           pic= {require('../assets/food/kaomankai.png')}
           title="ข้าวมันไก่"
           description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
           time="~30 นาที"
           allergy="ไก่"
-          />
+           />
 
           <RecipeLabel
           difficult={2}
+          toPage = "LoginPage"
           pic= {require('../assets/food/clearSoup.jpg')}
           title="แกงจืดเต้าหู้ไข่"
           description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
@@ -44,6 +53,7 @@ const MainMenuPage = () => {
 
           <RecipeLabel
           difficult={2}
+          toPage = "LoginPage"
           pic= {require('../assets/food/clearSoup.jpg')}
           title="แกงจืดเต้าหู้ไข่"
           description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
@@ -53,6 +63,7 @@ const MainMenuPage = () => {
 
           <RecipeLabel
           difficult={2}
+          toPage = "LoginPage"
           pic= {require('../assets/food/clearSoup.jpg')}
           title="แกงจืดเต้าหู้ไข่"
           description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
@@ -62,6 +73,7 @@ const MainMenuPage = () => {
 
           <RecipeLabel
           difficult={2}
+          toPage = "LoginPage"
           pic= {require('../assets/food/clearSoup.jpg')}
           title="แกงจืดเต้าหู้ไข่"
           description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"

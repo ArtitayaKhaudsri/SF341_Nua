@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/main icon/chef-fill.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/main icon/chef.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/main icon/cooking-fill.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/main icon/cooking.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/main icon/home-fill.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/main icon/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/MainMenuPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MainMenuPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/RecipeLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RecipeLabel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RegisterPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

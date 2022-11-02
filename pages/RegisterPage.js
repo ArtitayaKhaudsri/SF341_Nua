@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { SafeAreaView } from 'react-navigation';
@@ -10,12 +10,17 @@ const RegisterPage = () => {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
+
+            {/* Back button to Login page */}
             <TouchableOpacity onPress = {() => navigation.navigate('LoginPage', {})}>
                 <Icon style={{marginLeft: 30, marginTop: 40}} name="arrow-left" size={25} color="#fff"/>
             </TouchableOpacity>
+
+
             <Image source={require('../assets/Logo_white.png')} style={styles.logo} />
             <Text style={{color: "#fff", alignSelf: "center", marginBottom: 20}}>Let's have an account!</Text>
             
+            {/* Input username, Password & Confirm password */}
             <View style={styles.inputView}>
               <TextInput  
                 style={styles.inputText}
@@ -39,11 +44,14 @@ const RegisterPage = () => {
                 placeholderTextColor="#C7C7C7"/>
             </View>
   
+            {/* button to Main Page */}
             <TouchableOpacity style={styles.loginBttn} onPress = {() => navigation.navigate('MainMenuPage', {})}>
               <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Register</Text>
             </TouchableOpacity>
   
-            <View style={{alignItems: "center", flexDirection: 'row', justifyContent: "center", marginVertical: 25}}>
+
+            {/* ตรงส่วนปุ่มเชื่อมกับ google account ถ้าไม่ใช้แล้วแน่ ๆ ก็ลบออกได้เลย */}
+            {/* <View style={{alignItems: "center", flexDirection: 'row', justifyContent: "center", marginVertical: 25}}>
             <View style={{width: "33%", height: 1, backgroundColor: "#FF6464"}} />
             <View>
             <Text style={{width: 40, textAlign: "center", color: "#FF6464", fontSize: 13}}>OR</Text>
@@ -56,7 +64,7 @@ const RegisterPage = () => {
               <Icon name="google" size={18} color="#fff"/>
               <Text style={{color: "#fff", fontWeight: "500", marginLeft: 10}}>Login with Google account</Text>
             </TouchableOpacity>
-            </View>
+            </View> */}
       </View>
     </SafeAreaView>   
       

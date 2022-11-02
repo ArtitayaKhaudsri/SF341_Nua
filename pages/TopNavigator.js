@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
-
+/* Top navigator => Category Navigation tab */
 const TopNavigator = (props) => {
     const navigation = useNavigation();
     let onSelected = props.selected
@@ -10,8 +10,17 @@ const TopNavigator = (props) => {
     
     return(
         <View style={styles.topNavigatorView}>
+
+          {/* จะรับค่าตัวเลขเข้ามาว่าหน้าไหนเรียกใช้ ถ้าเป็นหน้าที่เลือกอยู่ตัวอักษรจะเป็นสีเขียว ถ้าไม่ใช่จะสีเทา
+              1 = Main menu page
+              2 = Boiled menu page
+              3 = Stir fry menu page
+              4 = Deep fried menu page
+              5 = Other menu page
+          */}
+          
           <TouchableOpacity onPress = {() => navigation.navigate('MainMenuPage', {})}>
-            <Text style={ onSelected == 1? styles.topTextSelected:styles.topTextNormal}>ทั้งหมด</Text>
+            <Text style={ onSelected == 1? styles.topTextSelected:styles.topTextNormal}>ทั้งหมด</Text> 
           </TouchableOpacity>
 
           <TouchableOpacity onPress = {() => navigation.navigate('MenuBoiledPage', {})}>

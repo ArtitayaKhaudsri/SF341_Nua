@@ -1,56 +1,61 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import Octicon from 'react-native-vector-icons/Octicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
+/* เป็นหน้า component ป้ายเมนูอาหาร มันจะรับค่ามาจากหน้าอื่นที่มาเรียกใช้มัน */
 const RecipeLabel = (props) => {
+   const navigation = useNavigation();
    const [liked, setLiked] = useState(false);
-    
+
    const isLiked = () => {
       setLiked(!liked)
     }
-    
+  
+   {/* เก็บ props ความยาก */}
    let level = props.difficult
     console.log(level)
+  
+   {/* เก็บ props ว่าจะลิงค์ไปหน้าไหน */}
+   let page = props.toPage
 
     return (
         <View>
          <TouchableOpacity 
-           onPress={() => navigation.navigate('LoginPage', {})} /* change LoginPage to Recipe Page */
+           /* เอาค่าที่ได้จากการเก็บ props ลิงค์ไปหน้าสูตรอาหารนั้น ๆ */
+           onPress={() => navigation.navigate(page, {})}
            style={styles.labelStyle}>
-
+            
+            {/* รูปอาหาร */}
             <Image source={props.pic} style = {styles.foodPicStyle}/>
+
+            {/* ปุ่มเพิ่มเข้า Favourite */}
             <TouchableOpacity 
             onPress={() => isLiked()}
-            style={{position: "absolute", marginTop: 18, marginLeft: "85%"}}
-            >
+            style={{position: "absolute", marginTop: 18, marginLeft: "85%"}}>
+
               <Octicon name={liked? "heart-fill" : "heart"}
                         size={25} 
                         color={liked? "#C21010" : "#fff"}
                         style={{shadowColor: "#000", elevation: 1}}/>
-              {/* <Animated.View style={[StyleSheet.absoluteFillObject, outtlineStyle]}>
-                <Octicon name="heart"
-                        size={25} color="#fff"/>
-              </Animated.View>
-
-              <Animated.View style={fillStyle}>
-                <Octicon name="heart-fill"
-                        size={25} color="#fff"/>
-              </Animated.View/> */}
             </TouchableOpacity>
             
+            {/* ชื่ออาหาร */}
             <View style={styles.viewTextStyle}>
                 <Text style={styles.textStyle}>
                     {props.title}
                 </Text>
             </View>
 
+            {/* คำอธิบายเกี่ยวกับอาหารสั้น ๆ */}
             <View>
-                <Text style={styles.descriptionStyle}>{props.description}</Text>
+                <Text style={styles.descriptionStyle}> {props.description} </Text>
             </View>
 
             <View style={styles.detailStyle}>
+                {/* ระดับความยาก */}
                 <View style={{flexDirection: "row", alignItems: "flex-start"}}>
                     <FontAwesome name="fire" size={13} color={level>=1? "#fff" : "#CE4141"} style={{marginLeft: 20, marginRight: 4}}/> 
                     <FontAwesome name="fire" size={13} color={level>=2? "#fff" : "#CE4141"} style={{marginRight: 4}}/> 
@@ -60,10 +65,14 @@ const RecipeLabel = (props) => {
             
 
                 <View style={{flexDirection: "row", justifyContent: "flex-end", alignSelf: 'flex-end'}}> 
+
+                    {/* ใช้เวลาเท่าไหร่ */}
                     <FeatherIcon name="clock" size={13} color="#fff" style={{marginLeft: 165, marginRight: 4}}/>
-                    <Text style={{color: "#fff", fontSize: 10, marginRight: 6}}>{props.time}</Text>
+                    <Text style={{color: "#fff", fontSize: 10, marginRight: 6}}> {props.time} </Text>
+
+                    {/* อาหารที่อาจทำให้เกิดการแพ้ */}
                     <FeatherIcon name="info" size={13} color="#fff" style={{marginRight: 4}}/>
-                    <Text style={{color: "#fff", fontSize: 10, marginRight: 80}}>{props.allergy}</Text>
+                    <Text style={{color: "#fff", fontSize: 10, marginRight: 80}}> {props.allergy} </Text>
                 </View>
             </View>
             
