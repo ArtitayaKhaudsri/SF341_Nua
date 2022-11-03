@@ -15,6 +15,8 @@ const Profile = () => {
 
           <View> 
             <Text style={styles.accname}>Account name</Text>
+  <Text>Test</Text>
+
           </View>
 
           <Image 
