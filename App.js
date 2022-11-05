@@ -14,6 +14,7 @@ const Stack = createNativeStackNavigator();
 function PageStack() {
   return (
     <Stack.Navigator >
+
       <Stack.Screen 
         name="LoginPage" 
         component={LoginPage} 

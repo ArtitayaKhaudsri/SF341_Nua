@@ -14,7 +14,7 @@ const LoginPage = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
           <Image source={require('../assets/Logo_white.png')} style={styles.logo} />
-          
+          <Text style={styles.welcomeText}> Cooking is easy. Let's cook and fun!</Text>
 
           {/* Input username & Password */}
           <View style={styles.inputView}>
@@ -33,10 +33,6 @@ const LoginPage = () => {
               placeholder="Password" 
               placeholderTextColor="#C7C7C7"/>
           </View>
-
-          <TouchableOpacity>
-            <Text style = {{marginLeft: 70, color: "#CFE8A9", fontSize: 13}}>Forgot password?</Text>
-          </TouchableOpacity>
 
           {/* button to Main Page */}
           <TouchableOpacity style={styles.loginBttn} onPress = {() => navigation.navigate('MainMenuPage', {})}>
@@ -95,6 +91,11 @@ logo: {
   marginTop: 70,
   justifyContent: "center",
   alignSelf: 'center'
+},
+welcomeText: {
+  color: "#fff", 
+  alignSelf: "center", 
+  marginBottom: 20
 },
 inputView:{
   width:"80%",

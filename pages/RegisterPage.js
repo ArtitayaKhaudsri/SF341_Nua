@@ -18,7 +18,7 @@ const RegisterPage = () => {
 
 
             <Image source={require('../assets/Logo_white.png')} style={styles.logo} />
-            <Text style={{color: "#fff", alignSelf: "center", marginBottom: 20}}>Let's have an account!</Text>
+            <Text style={styles.welcomeText}>Let's have an account!</Text>
             
             {/* Input username, Password & Confirm password */}
             <View style={styles.inputView}>
@@ -87,6 +87,11 @@ const RegisterPage = () => {
     height: 150,
     justifyContent: "center",
     alignSelf: 'center'
+  },
+  welcomeText: {
+    color: "#fff", 
+    alignSelf: "center", 
+    marginBottom: 20
   },
   inputView:{
     width:"80%",
