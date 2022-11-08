@@ -1,12 +1,63 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
+import React, {useState} from 'react'
+import {View, Text, StyleSheet, Image, TextInput, TouchableOpacity, Alert} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { SafeAreaView } from 'react-navigation';
 
 const RegisterPage = () => {
 
-    const navigation = useNavigation();
+  const navigation = useNavigation();
+
+  const [userName, setUserName] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [success, setSuccess] = useState(false)
+
+  const handlerRegister = async () => {
+    if (password !== confirmPassword) {
+        Alert.alert(
+            "ขอโทษค่ะ",
+            "ไม่สามารถลงทะเบียนได้ เนื่องจากรหัสผ่านไม่ตรงกัน",
+            [
+              {text: "ok", onPress: () => console.log("ok pressed")}
+            ]
+        )
+    }
+    else {
+      setSuccess(true)
+    }
+
+    if (success) {
+      const response = await fetch('http://localhost:3410/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userName: userName,
+          password: password,
+        })
+      })
+      const data = await response.json()
+      if (data.status === 'ok') {
+        Alert.alert(
+            "ลงทะเบียนสำเร็จค่ะ",
+            "สามารถเข้าสู่ระบบได้แล้ว",
+            [
+              {text: "ok", onPress: () => console.log("ok pressed")}
+            ]
+        )
+      } else {
+        Alert.alert(
+            "ข้ออภัยค่ะ",
+            "เกิดข้อผิดพลาดในการลงทะเบียนเข้าใช้งาน",
+            [
+              {text: "ok", onPress: () => console.log("ok pressed")}
+            ]
+        )
+      }
+    }
+  }
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
@@ -24,7 +75,8 @@ const RegisterPage = () => {
             <View style={styles.inputView}>
               <TextInput  
                 style={styles.inputText}
-                placeholder="Username" 
+                placeholder="Username"
+                onChangeText={setUserName}
                 placeholderTextColor="#C7C7C7"/>
             </View>
   
@@ -32,6 +84,7 @@ const RegisterPage = () => {
               <TextInput  
                 secureTextEntry
                 style={styles.inputText}
+                onChangeText={setPassword}
                 placeholder="Password" 
                 placeholderTextColor="#C7C7C7"/>
             </View>
@@ -40,12 +93,13 @@ const RegisterPage = () => {
               <TextInput  
                 secureTextEntry
                 style={styles.inputText}
-                placeholder="Confirm password" 
+                placeholder="Confirm password"
+                onChangeText={setConfirmPassword}
                 placeholderTextColor="#C7C7C7"/>
             </View>
   
             {/* button to Main Page */}
-            <TouchableOpacity style={styles.loginBttn} onPress = {() => navigation.navigate('MainMenuPage', {})}>
+            <TouchableOpacity style={styles.loginBttn} onPress = {() => handlerRegister}>
               <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Register</Text>
             </TouchableOpacity>
   

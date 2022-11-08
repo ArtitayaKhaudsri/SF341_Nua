@@ -1,14 +1,41 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
+import React, {useState} from 'react'
+import {View, Text, StyleSheet, Image, TextInput, TouchableOpacity, Alert} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Octicon from 'react-native-vector-icons/Octicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import { SafeAreaView } from 'react-navigation';
 
-
 const LoginPage = () => {
 
   const navigation = useNavigation();
+
+  const [userName, setUserName] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleLogin = async () => {
+    const response = await fetch('http://localhost:3410/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userName: userName,
+        password: password,
+      })
+    })
+    const data = await response.json()
+    if (data.status === 'ok') {
+      navigation.navigate('MainMenuPage', {})
+    } else {
+      Alert.alert(
+          data.status,
+          data.message,
+          [
+            {text: "ok", onPress: () => console.log("ok pressed")}
+          ]
+      )
+    }
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,7 +48,8 @@ const LoginPage = () => {
             <Octicon style={styles.setIcon} name="person" size={20} color="#C7C7C7"/> 
             <TextInput  
               style={styles.inputText}
-              placeholder="Username" 
+              placeholder="Username"
+              onChangeText={setUserName}
               placeholderTextColor="#C7C7C7"/>
           </View>
 
@@ -30,12 +58,13 @@ const LoginPage = () => {
             <TextInput  
               secureTextEntry
               style={styles.inputText}
-              placeholder="Password" 
+              placeholder="Password"
+              onChangeText={setPassword}
               placeholderTextColor="#C7C7C7"/>
           </View>
 
           {/* button to Main Page */}
-          <TouchableOpacity style={styles.loginBttn} onPress = {() => navigation.navigate('MainMenuPage', {})}>
+          <TouchableOpacity style={styles.loginBttn} onPress = {() => handleLogin}>
             <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Login</Text>
           </TouchableOpacity>
 
