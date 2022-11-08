@@ -1,20 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+import BoiledPage from './pages/BoiledPage';
+import FriedPage from './pages/FriedPage';
+import DeepfriedPage from './pages/DeepfriedPage';
+import CooldownPage from './pages/CooldownPage';
+
+const Stack = createNativeStackNavigator();
+
+function PageStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Stack.Navigator
+    screenOptions={{
+      // headerStyle: {
+      //   backgroundColor: '#C21010',
+      // },
+      // headerTitleAlign: 'center',
+      // headerTintColor: '#F5F5F5',
+      // headerTitleStyle: {
+      //   fontWeight: 'bold',
+      // },
+        
+    }}
+    > 
+      <Stack.Screen 
+        name="BoiledPage" 
+        component={BoiledPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name="FriedPage" 
+        component={FriedPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name="DeepfriedPage" 
+        component={DeepfriedPage}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name="CooldownPage" 
+        component={CooldownPage}
+        options={{headerShown: false}}
+      />
+    </Stack.Navigator>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App = () => {
+  return (
+    <NavigationContainer>
+      <PageStack />
+    </NavigationContainer>
+  );
+}
+export default App;
