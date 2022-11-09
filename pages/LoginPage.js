@@ -13,7 +13,8 @@ const LoginPage = () => {
   const [password, setPassword] = useState("")
 
   const handleLogin = async () => {
-    const response = await fetch('http://localhost:3410/login', {
+    console.log('login');
+    const response = await fetch('http://192.168.43.146:3410/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -50,6 +51,7 @@ const LoginPage = () => {
               style={styles.inputText}
               placeholder="Username"
               onChangeText={setUserName}
+              value={userName}
               placeholderTextColor="#C7C7C7"/>
           </View>
 
@@ -60,11 +62,12 @@ const LoginPage = () => {
               style={styles.inputText}
               placeholder="Password"
               onChangeText={setPassword}
+              value={password}
               placeholderTextColor="#C7C7C7"/>
           </View>
 
           {/* button to Main Page */}
-          <TouchableOpacity style={styles.loginBttn} onPress = {() => handleLogin}>
+          <TouchableOpacity style={styles.loginBttn} onPress = {() => handleLogin()}>
             <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Login</Text>
           </TouchableOpacity>
 

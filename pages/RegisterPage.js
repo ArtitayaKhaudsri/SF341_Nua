@@ -13,51 +13,40 @@ const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [success, setSuccess] = useState(false)
 
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ userName: userName, password:  password })
+  };
+
   const handlerRegister = async () => {
-    if (password !== confirmPassword) {
-        Alert.alert(
-            "ขอโทษค่ะ",
-            "ไม่สามารถลงทะเบียนได้ เนื่องจากรหัสผ่านไม่ตรงกัน",
-            [
-              {text: "ok", onPress: () => console.log("ok pressed")}
-            ]
-        )
+    if (confirmPassword !== password) {
+      Alert.alert('ไม่สามารถลงทะเบียนได้', 'เนื่องจากรหัสยืนยันไม่ตรงกัน')
+    }
+    if (userName.length === 0) {
+      Alert.alert('ไม่สามารถลงทะเบียนได้', 'กรุณากรอก username')
     }
     else {
       setSuccess(true)
     }
-
     if (success) {
-      const response = await fetch('http://localhost:3410/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userName: userName,
-          password: password,
-        })
-      })
-      const data = await response.json()
-      if (data.status === 'ok') {
-        Alert.alert(
-            "ลงทะเบียนสำเร็จค่ะ",
-            "สามารถเข้าสู่ระบบได้แล้ว",
-            [
-              {text: "ok", onPress: () => console.log("ok pressed")}
-            ]
-        )
-      } else {
-        Alert.alert(
-            "ข้ออภัยค่ะ",
-            "เกิดข้อผิดพลาดในการลงทะเบียนเข้าใช้งาน",
-            [
-              {text: "ok", onPress: () => console.log("ok pressed")}
-            ]
-        )
+      try {
+        await fetch('http://192.168.43.146:3410/register', requestOptions)
+          .then(response => {
+            response.json()
+              .then(data => {
+                Alert.alert('ลงทะเบียนสำเร็จ', 'สามารถเข้าสู่ระบบได้เเล้วค่ะ')
+                  setUserName("")
+                  setPassword("")
+                  setConfirmPassword("")
+                  navigation.navigate('LoginPage', {})
+              });
+          })
+      } catch (error) {
+        console.error(error);
       }
     }
-  }
+  };
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.container}>
@@ -77,6 +66,7 @@ const RegisterPage = () => {
                 style={styles.inputText}
                 placeholder="Username"
                 onChangeText={setUserName}
+                value={userName}
                 placeholderTextColor="#C7C7C7"/>
             </View>
   
@@ -85,6 +75,7 @@ const RegisterPage = () => {
                 secureTextEntry
                 style={styles.inputText}
                 onChangeText={setPassword}
+                value={password}
                 placeholder="Password" 
                 placeholderTextColor="#C7C7C7"/>
             </View>
@@ -95,11 +86,12 @@ const RegisterPage = () => {
                 style={styles.inputText}
                 placeholder="Confirm password"
                 onChangeText={setConfirmPassword}
+                value={confirmPassword}
                 placeholderTextColor="#C7C7C7"/>
             </View>
   
             {/* button to Main Page */}
-            <TouchableOpacity style={styles.loginBttn} onPress = {() => handlerRegister}>
+            <TouchableOpacity style={styles.loginBttn} onPress = {()=>handlerRegister()}>
               <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Register</Text>
             </TouchableOpacity>
   
