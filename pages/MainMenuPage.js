@@ -1,12 +1,27 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native'
+import {React, useEffect, useState} from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
 import TopNavigator from './TopNavigator';
 
 
+
 const MainMenuPage = () => {
+
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  console.log(data);
+
+  useEffect(() => {
+    fetch('http://192.168.1.37:3410/api/recipes')
+    //fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((json) => setData(json))
+    .catch((error) => console.error(error))
+    .finally(() => setLoading(false));
+    
+  }, [])
 
     return (
     <SafeAreaView style={styles.container}>
@@ -18,7 +33,6 @@ const MainMenuPage = () => {
         <TopNavigator selected = '1'/>
         <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF", marginBottom: 30}}/> 
 
-
         {/* Recipe order 
             แต่ละ Recipe จะรับค่าข้อมูลเข้าไปใส่ใน component ที่อยู่อีกไฟล์ (RecipeLabel.js)
             difficult={ระดับความยาก มี 3 ระดับ (1, 2, 3)}
@@ -29,58 +43,32 @@ const MainMenuPage = () => {
             time="เวลาโดยประมาณที่ใช้ในการทำอาหาร"
             allergy="อาหารที่แพ้ ไม่มีใส่ -"
         */}
-        
         <ScrollView>
-          <RecipeLabel 
-          difficult={2}
-          toPage = "LoginPage"
-          pic= {require('../assets/food/kaomankai.png')}
-          title="ข้าวมันไก่"
-          description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-          time="~30 นาที"
-          allergy="ไก่"
-           />
+          {loading ? <Text> Loading...</Text> : (
+            <View style = {{paddingBottom: 60}}>
+              
+              <FlatList
+              data = {data}
+              keyExtractor = {({id}, index) => id}
+              renderItem = {({ item }) => (
+                
+                <RecipeLabel
+                difficult={item.level}
+                toPage = {item.topage}
+                pic= {item.picture}
+                title={item.menuName}
+                description={item.title}
+                time="ไม่เกิน 30 นาที"
+                allergy= {item.foodAllergy}
+                />
+              
+              )}
+              />
+            </View>
+          )}
+        </ScrollView>
 
-          <RecipeLabel
-          difficult={2}
-          toPage = "LoginPage"
-          pic= {require('../assets/food/clearSoup.jpg')}
-          title="แกงจืดเต้าหู้ไข่"
-          description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-          time="~30 นาที"
-          allergy="หมู"
-          />
-
-          <RecipeLabel
-          difficult={2}
-          toPage = "LoginPage"
-          pic= {require('../assets/food/clearSoup.jpg')}
-          title="แกงจืดเต้าหู้ไข่"
-          description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-          time="~30 นาที"
-          allergy="หมู"
-          />
-
-          <RecipeLabel
-          difficult={2}
-          toPage = "LoginPage"
-          pic= {require('../assets/food/clearSoup.jpg')}
-          title="แกงจืดเต้าหู้ไข่"
-          description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-          time="~30 นาที"
-          allergy="หมู"
-          />
-
-          <RecipeLabel
-          difficult={2}
-          toPage = "LoginPage"
-          pic= {require('../assets/food/clearSoup.jpg')}
-          title="แกงจืดเต้าหู้ไข่"
-          description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-          time="~30 นาที"
-          allergy="หมู"
-          />
-      </ScrollView>
+      
 
       {/* Bottom navigator */}
       <View style={styles.bottomNavigatorView}>
@@ -107,11 +95,10 @@ const MainMenuPage = () => {
     );
   }
   
-  
   const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#fff',
   },
   text: {
@@ -170,111 +157,3 @@ const MainMenuPage = () => {
   });
   
   export default MainMenuPage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // <TouchableOpacity 
-  //          onPress={() => navigation.navigate('LoginPage', {})} /* change LoginPage to Recipe Page */
-  //          style={{backgroundColor: "#E64848", 
-  //          width: "80%", 
-  //          height: 190, 
-  //          alignSelf: "center", 
-  //          borderRadius: 10,
-  //          shadowColor: "#000",
-  //          elevation: 5 /* only worked on andriod */
-
-  //          /* below props only worked on ios */
-  //         //  shadowOpacity: 100,
-  //         //  shadowRadius: 4,
-  //         //  shadowOffset: {
-  //         //   width: 30,
-  //         //   height: -5
-  //         //  }
-  //          }}>
-            
-  //            <Image source={require('../assets/food/clearSoup.jpg')} style = {{borderTopLeftRadius: 10, borderTopRightRadius: 10, alignSelf: "flex-start", width: "100%", height: 130}}/>
-  //            <TouchableOpacity 
-  //            onPress={() => isLiked()}
-  //            style={{position: "absolute", marginTop: 18, marginLeft: "85%"}}
-  //            >
-  //              <Octicon name={liked? "heart-fill" : "heart"}
-  //                        size={25} color="#fff"/>
-  //            </TouchableOpacity>
-            
-  //           <View style={styles.viewTextStyle}>
-  //               <Text style={styles.textStyle}>
-  //                   แกงจืดเต้าหู้ไข่
-  //               </Text>
-  //           </View>
-
-  //           <View>
-  //               <Text style={styles.descriptionStyle}>เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น</Text>
-  //           </View>
-
-  //           <View style={styles.detailStyle}>
-  //               <View style={{flexDirection: "row", alignItems: "flex-start"}}>
-  //                   <FontAwesome name="fire" size={13} color="#fff" style={{marginLeft: 20, marginRight: 4}}/> 
-  //                   <FontAwesome name="fire" size={13} color="#fff" style={{marginRight: 4}}/> 
-  //                   <Octicon name="flame" size={13} color="#fff"/>
-  //               </View>
-            
-
-  //               <View style={{flexDirection: "row", justifyContent: "flex-end", alignSelf: 'flex-end'}}> 
-  //                   <FeatherIcon name="clock" size={13} color="#fff" style={{marginLeft: 165, marginRight: 4}}/>
-  //                   <Text style={{color: "#fff", fontSize: 10, marginRight: 6}}>~30 นาที</Text>
-  //                   <FeatherIcon name="info" size={13} color="#fff" style={{marginRight: 4}}/>
-  //                   <Text style={{color: "#fff", fontSize: 10, marginRight: 80}}>หมู</Text>
-  //               </View>
-  //           </View>
-            
-  //          </TouchableOpacity>
