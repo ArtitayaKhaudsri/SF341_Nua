@@ -1,10 +1,10 @@
 import {React, useEffect, useState} from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
-import { SafeAreaView } from 'react-navigation';
+import {NavigationActions , SafeAreaView} from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
 import TopNavigator from './TopNavigator';
-
+import { useNavigation } from '@react-navigation/native';
 
 
 const MainMenuPage = () => {
@@ -22,6 +22,8 @@ const MainMenuPage = () => {
     .finally(() => setLoading(false));
     
   }, [])
+
+  const navigation = useNavigation();
 
     return (
     <SafeAreaView style={styles.container}>
@@ -84,7 +86,7 @@ const MainMenuPage = () => {
         <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('Profile', {})}>
         <Octicon name={"person"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 

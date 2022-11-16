@@ -2,65 +2,66 @@ import React, { Profiler } from 'react';
 import { TouchableOpacity, View, StyleSheet, Text, Image} from 'react-native';
 import Octicon from 'react-native-vector-icons/Octicons';
 import { useNavigation } from '@react-navigation/native';
-
-
+import {SafeAreaView} from 'react-navigation';
 
 const Profile = () => {
-  const navigation = useNavigation(false);
+  const navigation = useNavigation();
   
     return (
-        <View style = { styles.container }>
-          
+      <SafeAreaView style = { styles.container }>
+        <View>
           <TouchableOpacity> 
-            <Image source={require('../img/vector.png')} style={styles.vector}/>
+            <Image source={require('../assets/vector.png')} style={styles.vector}/>
           </TouchableOpacity>
-
-          <View> 
-            <Text style={styles.accname}>Account name</Text>
-          </View>
-
-          <Image 
-            style={{width: 390, height: 2, top: 80,
-              left: 0}}
-            source={require('../img/line.jpg')}
-            />
-        
-          <View style={styles.Fav}>
-              <Text style={{color: "#000000", fontWeight: "bold"}}>Favorite</Text>
-              <Image style={{width: 35, height: 20, top: -15, left: -35}}
-              source={require('../img/heart.png')}/>
-          </View>
-
-          <TouchableOpacity style={styles.succ} onPress = {() => navigation.navigate('Success', {})}>
-              <Text style={{color: "#000000", fontWeight: "bold"}}>Success</Text>
-              <Image style={{width: 20, height: 20, top: -18, left: -27}}
-              source={require('../img/success.png')}/>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.logoutBttn} onPress = {() => navigation.navigate('Login', {})}>
-            <Text style={{color: "#C21010", fontWeight: "bold", alignSelf: "center"}}>Log out</Text>
-          </TouchableOpacity>
-
-          <View style={styles.bottomNavigatorView}> 
-            <TouchableOpacity>
-              <Octicon name={"home"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress = {() => navigation.navigate('Favorite', {})}>
-              <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Octicon name={"person-fill"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
-            </TouchableOpacity>
-
-          </View>
+          <Text style={styles.accname}>Account name</Text>
         </View>
-        
+
+        <View borderBottomColor= '#c7c7c7' borderBottomWidth= {StyleSheet.hairlineWidth} style={{top:"8%"}}/>
+
+        <View>
+            <Octicon name={"heart-fill"} color="#C21010" size={21} style={{paddingLeft: "20%", paddingTop:"25%"}}>
+                <View style={styles.Fav}>
+                    <Text>Favourite(N)</Text>
+                </View>
+            </Octicon>
+        </View>
+        <View>
+            <View style={{paddingLeft: "20%", paddingTop:"5%"}}>
+                <View>
+                    <View style={{position:"absolute"}}>
+                        <Image source={require('../assets/success.png')} style={{width:24, height:24}}/>
+                    </View>
+                    <View>
+                        <Text style={styles.succ}>Success(M)</Text>
+                    </View>
+                </View>
+            </View>
+        </View>
+        <View>
+            <TouchableOpacity style={styles.logoutBttn} >
+                <Text style={{color: "#C21010", fontWeight: "bold", alignSelf: "center"}}>Log out</Text>
+            </TouchableOpacity>
+        </View>
+          <View style={styles.bottomNavigatorView}>
+              <TouchableOpacity>
+                  <Image source={require('../assets/home-fill.png')} style={{width: 20, height: 20, marginTop: 20}}/>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                  <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                  <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress = {() => navigation.navigate('Profile', {})}>
+                  <Octicon name={"person"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
+              </TouchableOpacity>
+
+          </View>
+
+      </SafeAreaView>
     );
 }
 
@@ -104,23 +105,24 @@ const styles = StyleSheet.create({
        Fav: {
         fontSize: 15,
         color: '#000000',
-        top: 110,
-        left: 100,
+        paddingLeft:5
       },
 
       succ: {
         fontSize: 15,
         color: '#000000',
-        top: 120,
-        left: 100,
-        
+        paddingLeft:25
       },
       logoutBttn: {
+        left:"42%",
+        width:"20%",
         fontSize: 15,
-        color: '#FF7F00',
-        top: 213,
-        left: 0,
-        
+        color: '#C21010',
+        borderColor:"#C21010",
+        borderWidth:2,
+        borderRadius: 50,
+        top: "50%",
+        height: "20%"
       },
 
     })    

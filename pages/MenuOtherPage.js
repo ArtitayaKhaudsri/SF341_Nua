@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
 import TopNavigator from './TopNavigator';
+import Profile from "./Profile";
 
 
 const MenuOtherPage = () => {
@@ -75,7 +76,7 @@ const MenuOtherPage = () => {
         <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('Profile', {})}>
         <Octicon name={"person"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 

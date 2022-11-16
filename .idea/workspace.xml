@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="connect api">
-      <change afterPath="$PROJECT_DIR$/pages/test.js" afterDir="false" />
+    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/vector.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MainMenuPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MainMenuPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MenuBoiledPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuBoiledPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MenuDeepFriedPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuDeepFriedPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MenuOtherPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuOtherPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MenuStirFryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuStirFryPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,21 +28,30 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GniESfn48XW0VOOTOkKKDKskgz" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/SF341_Nua&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/GitHub/SF341_Nua",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHub\SF341_Nua\assets" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -78,6 +91,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="connect api" />
     <option name="LAST_COMMIT_MESSAGE" value="connect api" />
   </component>

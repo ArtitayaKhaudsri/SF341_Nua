@@ -8,6 +8,7 @@ import MenuBoiledPage from './pages/MenuBoiledPage';
 import MenuStirFryPage from './pages/MenuStirFryPage';
 import MenuDeepFriedPage from './pages/MenuDeepFriedPage';
 import MenuOtherPage from './pages/MenuOtherPage';
+import Profile from "./pages/Profile";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,11 @@ function PageStack() {
       <Stack.Screen 
         name="MenuOtherPage" 
         component={MenuOtherPage} 
+        options={{headerShown:false}}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
         options={{headerShown:false}}
       />
     </Stack.Navigator>
