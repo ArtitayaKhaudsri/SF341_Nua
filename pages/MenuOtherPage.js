@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native'
+import {React, useEffect, useState} from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
 import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
@@ -7,6 +7,23 @@ import TopNavigator from './TopNavigator';
 
 
 const MenuOtherPage = () => {
+
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  console.log(data);
+
+  useEffect(() => {
+    fetch('http://192.168.1.37:3410/api/recipes')
+    //fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((json) => {
+      let data = json.filter(i => i.type === 'other');
+      setData(data)
+    })
+    .catch((error) => console.error(error))
+    .finally(() => setLoading(false));
+    
+  }, [])
 
     return (
     <SafeAreaView style={styles.container}>
@@ -19,26 +36,30 @@ const MenuOtherPage = () => {
         <View style={{width: "100%", height: 1, backgroundColor: "#DFDFDF", marginBottom: 30}}/> 
 
 
-       {/* Recipe order 
-            แต่ละ Recipe จะรับค่าข้อมูลเข้าไปใส่ใน component ที่อยู่อีกไฟล์ (RecipeLabel.js)
-            difficult={ระดับความยาก มี 3 ระดับ (1, 2, 3)}
-            toPage = "ชื่อหน้าที่จะลิงค์ไป"
-            pic= {ที่อยู่รูปภาพ}
-            title="ชื่ออาหาร"
-            description="คำอธิบายสั้น ๆ เกี่ยวกับอาหาร"
-            time="เวลาโดยประมาณที่ใช้ในการทำอาหาร"
-            allergy="อาหารที่แพ้ ไม่มีใส่ -"
-        */}
         <ScrollView>
-          <RecipeLabel 
-          difficult={2}
-          pic= {require('../assets/food/kaomankai.png')}
-          title="อื่น ๆ"
-          description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-          time="~30 นาที"
-          allergy="ไก่"
-          />
-      </ScrollView>
+          {loading ? <Text> Loading...</Text> : (
+            <View style = {{paddingBottom: 60}}>
+              
+              <FlatList
+              data = {data}
+              keyExtractor = {({id}, index) => id}
+              renderItem = {({ item }) => (
+                
+                <RecipeLabel
+                difficult={item.level}
+                toPage = {item.topage}
+                pic= {item.picture}
+                title={item.menuName}
+                description={item.title}
+                time="ไม่เกิน 30 นาที"
+                allergy= {item.foodAllergy}
+                />
+              
+              )}
+              />
+            </View>
+          )}
+        </ScrollView>
 
       {/* Bottom navigator */}
       <View style={styles.bottomNavigatorView}>
@@ -129,56 +150,3 @@ const MenuOtherPage = () => {
   
   export default MenuOtherPage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
