@@ -149,4 +149,3 @@ const MenuOtherPage = () => {
   });
   
   export default MenuOtherPage
-
