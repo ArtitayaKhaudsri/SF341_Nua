@@ -9,6 +9,16 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 const RecipeLabel = (props) => {
    const navigation = useNavigation();
    const [liked, setLiked] = useState(false);
+   
+   const update =(like) => {
+    console.log('now')
+    fetch('http://192.168.1.37:3410/api/recipes/update/'+props.id+'/'+like)
+    //fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+    .catch((error) => console.error(error))
+    
+  }
 
    const isLiked = () => {
       setLiked(!liked)
