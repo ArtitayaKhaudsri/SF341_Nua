@@ -8,7 +8,7 @@ import MenuBoiledPage from './pages/MenuBoiledPage';
 import MenuStirFryPage from './pages/MenuStirFryPage';
 import MenuDeepFriedPage from './pages/MenuDeepFriedPage';
 import MenuOtherPage from './pages/MenuOtherPage';
-import Favarite from './pages/Favorite'
+import Favorite from './pages/Favorite'
 import Profile from "./pages/Profile";
 
 const Stack = createNativeStackNavigator();
@@ -65,8 +65,8 @@ function PageStack() {
       />
 
       <Stack.Screen
-        name="Favarite"
-        component={Favarite}
+        name="Favorite"
+        component={Favorite}
         options={{headerShown:false}}
       />
     </Stack.Navigator>

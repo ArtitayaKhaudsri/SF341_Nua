@@ -73,7 +73,7 @@ const MenuStirFryPage = () => {
         <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress = {() => navigation.navigate('Favarite', {})}>
+        <TouchableOpacity onPress = {() => navigation.navigate('Favorite', {})}>
         <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
