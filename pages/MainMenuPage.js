@@ -74,7 +74,7 @@ const MainMenuPage = () => {
 
       {/* Bottom navigator */}
       <View style={styles.bottomNavigatorView}>
-        <TouchableOpacity>
+        <TouchableOpacity >
         <Image source={require('../assets/home-fill.png')} style={{width: 20, height: 20, marginTop: 20}}/>
         </TouchableOpacity>
 
@@ -82,7 +82,7 @@ const MainMenuPage = () => {
         <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('Favorite', {})}>
         <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 

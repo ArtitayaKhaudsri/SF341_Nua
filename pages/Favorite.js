@@ -17,7 +17,7 @@ const Favorite = () => {
               <RecipeLabel 
                 difficult={2}
                 toPage = "Profile"//ใส่เป็นหน้า profile ไปก่อนเฉยๆ
-                pic= {require('../img/kaomankai.png')}
+                pic= {require('../assets/food/kaomankai.png')}
                 title="ข้าวมันไก่"
                 description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
                 time="~30 นาที"
@@ -27,7 +27,7 @@ const Favorite = () => {
               <RecipeLabel 
                 difficult={2}
                 toPage = "Profile"
-                pic= {require('../img/kaomankai.png')}
+                pic= {require('../assets/food/kaomankai.png')}
                 title="ข้าวมันไก่"
                 description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
                 time="~30 นาที"
@@ -37,7 +37,7 @@ const Favorite = () => {
               <RecipeLabel 
                 difficult={2}
                 toPage = "Profile"
-                pic= {require('../img/kaomankai.png')}
+                pic= {require('../assets/food/kaomankai.png')}
                 title="ข้าวมันไก่"
                 description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
                 time="~30 นาที"
@@ -51,7 +51,7 @@ const Favorite = () => {
 
             <View style={styles.bottomNavigatorView}>
 
-              <TouchableOpacity>
+              <TouchableOpacity onPress = {() => navigation.navigate('MainMenuPage', {})}>
                 <Octicon name={"home"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
               </TouchableOpacity>
 
