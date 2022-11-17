@@ -1,5 +1,5 @@
 import {React, useEffect, useState} from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList} from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList} from 'react-native'
 import {NavigationActions , SafeAreaView} from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
@@ -12,6 +12,27 @@ const MainMenuPage = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   console.log(data);
+  
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({a:"a",b:"b"})
+  };
+
+  const handlerfav = async () => {
+      try {
+        
+        await fetch('http://192.168.1.37:3410/fav', requestOptions)
+          .then(response => {
+            response.json()
+              .then(data => {
+                console.log(data);
+              });
+          })
+      } catch (error) {
+        console.error(error);
+      }
+  };
 
   useEffect(() => {
     fetch('http://192.168.1.37:3410/api/recipes')
@@ -45,7 +66,7 @@ const MainMenuPage = () => {
             time="เวลาโดยประมาณที่ใช้ในการทำอาหาร"
             allergy="อาหารที่แพ้ ไม่มีใส่ -"
         */}
-        <ScrollView>
+       
           {loading ? <Text> Loading...</Text> : (
             <View style = {{paddingBottom: 60}}>
               
@@ -62,13 +83,15 @@ const MainMenuPage = () => {
                 description={item.title}
                 time="ไม่เกิน 30 นาที"
                 allergy= {item.foodAllergy}
+                like={item.like}
+                id={item.id}
                 />
               
               )}
               />
             </View>
           )}
-        </ScrollView>
+        
 
       
 
