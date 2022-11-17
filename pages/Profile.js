@@ -43,15 +43,15 @@ const Profile = () => {
             </TouchableOpacity>
         </View>
           <View style={styles.bottomNavigatorView}>
-              <TouchableOpacity>
-                  <Image source={require('../assets/home-fill.png')} style={{width: 20, height: 20, marginTop: 20}}/>
+              <TouchableOpacity onPress = {() => navigation.navigate('MainMenuPage', {})}>
+                  <Image source={require('../assets/home.png')} style={{width: 20, height: 20, marginTop: 20}}/>
               </TouchableOpacity>
 
-              <TouchableOpacity>
+              <TouchableOpacity >
                   <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
               </TouchableOpacity>
 
-              <TouchableOpacity>
+              <TouchableOpacity onPress = {() => navigation.navigate('Favarite', {})}>
                   <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
               </TouchableOpacity>
 

@@ -8,6 +8,7 @@ import MenuBoiledPage from './pages/MenuBoiledPage';
 import MenuStirFryPage from './pages/MenuStirFryPage';
 import MenuDeepFriedPage from './pages/MenuDeepFriedPage';
 import MenuOtherPage from './pages/MenuOtherPage';
+import Favarite from './pages/Favorite'
 import Profile from "./pages/Profile";
 
 const Stack = createNativeStackNavigator();
@@ -16,7 +17,7 @@ function PageStack() {
   return (
     <Stack.Navigator >
 
-      <Stack.Screen 
+      {/* <Stack.Screen 
         name="LoginPage" 
         component={LoginPage} 
         options={{headerShown:false}}
@@ -26,7 +27,7 @@ function PageStack() {
         name="RegisterPage" 
         component={RegisterPage} 
         options={{headerShown:false}}
-      />
+      /> */}
 
       <Stack.Screen 
         name="MainMenuPage" 
@@ -60,6 +61,12 @@ function PageStack() {
       <Stack.Screen
         name="Profile"
         component={Profile}
+        options={{headerShown:false}}
+      />
+
+      <Stack.Screen
+        name="Favarite"
+        component={Favarite}
         options={{headerShown:false}}
       />
     </Stack.Navigator>

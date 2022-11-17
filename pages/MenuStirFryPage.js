@@ -4,9 +4,11 @@ import { SafeAreaView } from 'react-navigation';
 import RecipeLabel from './RecipeLabel';
 import Octicon from 'react-native-vector-icons/Octicons';
 import TopNavigator from './TopNavigator';
-import Profile from "./Profile";
+import { useNavigation } from '@react-navigation/native';
 
 const MenuStirFryPage = () => {
+
+  const navigation = useNavigation();
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -63,7 +65,7 @@ const MenuStirFryPage = () => {
 
       {/* Bottom navigator */}
       <View style={styles.bottomNavigatorView}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('MainMenuPage', {})}>
         <Image source={require('../assets/home-fill.png')} style={{width: 20, height: 20, marginTop: 20}}/>
         </TouchableOpacity>
 
@@ -71,7 +73,7 @@ const MenuStirFryPage = () => {
         <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('Favarite', {})}>
         <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
