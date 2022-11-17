@@ -1,10 +1,31 @@
-import React from 'react';
-import { TouchableOpacity, View, StyleSheet, StatusBar, Text, ScrollView } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { TouchableOpacity, View, StyleSheet, StatusBar, Text, FlatList} from 'react-native';
 import Octicon from 'react-native-vector-icons/Octicons';
 import { useNavigation } from '@react-navigation/native';
 import RecipeLabel from './RecipeLabel';
 
 const Favorite = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [count, setCount] = useState(0);
+  console.log(data);
+
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({a:"a",b:"b"})
+  };
+
+  useEffect(() => {
+    fetch('http://192.168.1.112:3410/api/recipes')
+    //fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((json) => setData(json))
+    .catch((error) => console.error(error))
+    .finally(() => setLoading(false));
+    
+  }, [])
+  
   const navigation = useNavigation(true);
     return (
         <View style = { styles.container }>
@@ -13,37 +34,26 @@ const Favorite = () => {
             <View style={styles.header}><Text style={styles.favtext}>Favorite</Text></View>
 
             <View style={{width: "100%",marginTop: 150}}>
-              <ScrollView>
-              <RecipeLabel 
-                difficult={2}
-                toPage = "Profile"//ใส่เป็นหน้า profile ไปก่อนเฉยๆ
-                pic= {require('../assets/food/kaomankai.png')}
-                title="ข้าวมันไก่"
-                description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-                time="~30 นาที"
-                allergy="ไก่"
-                />
-
-              <RecipeLabel 
-                difficult={2}
-                toPage = "Profile"
-                pic= {require('../assets/food/kaomankai.png')}
-                title="ข้าวมันไก่"
-                description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-                time="~30 นาที"
-                allergy="ไก่"
-                />
-
-              <RecipeLabel 
-                difficult={2}
-                toPage = "Profile"
-                pic= {require('../assets/food/kaomankai.png')}
-                title="ข้าวมันไก่"
-                description="เมนูอาหารง่าย ๆ แต่ความอร่อยเหลือล้น"
-                time="~30 นาที"
-                allergy="ไก่"
-                />
-              </ScrollView>
+              <FlatList
+              data = {data}
+              keyExtractor = {({id}, index) => id}
+              renderItem = {({ item }) => {
+                if(item.like){
+                  return (
+                  <RecipeLabel
+                difficult={item.level}
+                toPage = {item.topage}
+                pic= {item.picture}
+                title={item.menuName}
+                description={item.title}
+                time="ไม่เกิน 30 นาที"
+                allergy= {item.foodAllergy}
+                like={item.like}
+                id={item.id}
+                />)
+                }
+              }}
+              />
               </View> 
             
             
