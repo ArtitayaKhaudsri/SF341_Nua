@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/success.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/vector.png" afterDir="false" />
+    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="profile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/MainMenuPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MainMenuPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/MenuBoiledPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuBoiledPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/MenuDeepFriedPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuDeepFriedPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/MenuOtherPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuOtherPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/MenuStirFryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MenuStirFryPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/LoginPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,18 +28,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/GitHub/SF341_Nua",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/SF341_Nua&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GitHub\SF341_Nua\assets" />
@@ -65,6 +58,7 @@
       <workItem from="1667973141583" duration="26000" />
       <workItem from="1667973584833" duration="112000" />
       <workItem from="1667998208281" duration="7932000" />
+      <workItem from="1668678758092" duration="2602000" />
     </task>
     <task id="LOCAL-00001" summary="connect api">
       <created>1667897327355</created>
@@ -73,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667897327355</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="profile">
+      <created>1668628800779</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668628800779</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +94,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="connect api" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect api" />
+    <MESSAGE value="profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile" />
   </component>
 </project>

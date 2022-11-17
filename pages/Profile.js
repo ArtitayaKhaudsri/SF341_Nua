@@ -5,8 +5,15 @@ import { useNavigation } from '@react-navigation/native';
 import {SafeAreaView} from 'react-navigation';
 
 const Profile = () => {
-  const navigation = useNavigation();
-  
+
+    const navigation = useNavigation();
+
+    const onLogout = async () => {
+        fetch('http://192.168.1.37:3410/logout')
+            .then((response) => response.json())
+            .then((data) => console.log(data));
+        navigation.navigate('LoginPage', {})
+    }
     return (
       <SafeAreaView style = { styles.container }>
         <View>
@@ -38,7 +45,7 @@ const Profile = () => {
             </View>
         </View>
         <View>
-            <TouchableOpacity style={styles.logoutBttn} >
+            <TouchableOpacity style={styles.logoutBttn} onPress={() => onLogout()} >
                 <Text style={{color: "#C21010", fontWeight: "bold", alignSelf: "center"}}>Log out</Text>
             </TouchableOpacity>
         </View>

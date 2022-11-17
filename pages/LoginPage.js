@@ -13,7 +13,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState("")
 
   const handleLogin = async () => {
-    console.log('login');
     const response = await fetch('http://192.168.43.146:3410/login', {
       method: 'POST',
       headers: {
@@ -26,7 +25,7 @@ const LoginPage = () => {
     })
     const data = await response.json()
     if (data.status === 'ok') {
-      navigation.navigate('MainMenuPage', {})
+      navigation.navigate('MainMenuPage', {});
     } else {
       Alert.alert(
           data.status,
