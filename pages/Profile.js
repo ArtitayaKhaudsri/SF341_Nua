@@ -8,12 +8,32 @@ const Profile = () => {
 
     const navigation = useNavigation();
 
-    const onLogout = async () => {
-        fetch('http://192.168.1.37:3410/logout')
-            .then((response) => response.json())
-            .then((data) => console.log(data));
-        navigation.navigate('LoginPage', {})
-    }
+    var c = 0;
+  const [count, setCount] = useState(0);
+
+  const [userName, setUserName] = useState("")
+
+  useEffect(() => {
+    fetch('http://192.168.1.37:3410/api/recipes')
+    //fetch('https://jsonplaceholder.typicode.com/users')
+    .then((response) => response.json())
+    .then((json) => {json.forEach(element => {
+      
+      if(element.like){
+        console.log("x")
+        c = c+1;
+      }
+    });setCount(c);})
+    .catch((error) => console.error(error));
+      try {
+        AsyncStorage.getItem('username').then((value)=>{
+          console.log(value);
+          setUserName(value);
+        });
+      } catch (error) {
+        console.log(error);
+      }   
+  }, [])
     return (
       <SafeAreaView style = { styles.container }>
         <View>
