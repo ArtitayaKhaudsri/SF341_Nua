@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import Octicon from 'react-native-vector-icons/Octicons';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import { SafeAreaView } from 'react-navigation';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginPage = () => {
 
@@ -25,6 +26,17 @@ const LoginPage = () => {
     })
     const data = await response.json()
     if (data.status === 'ok') {
+      
+      try {
+        await AsyncStorage.setItem(
+          'username',
+          userName
+        );
+        console.log("x");
+      } catch (error) {
+        console.log(error)
+      }
+      
       navigation.navigate('MainMenuPage', {});
     } else {
       Alert.alert(
