@@ -8,10 +8,9 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 /* เป็นหน้า component ป้ายเมนูอาหาร มันจะรับค่ามาจากหน้าอื่นที่มาเรียกใช้มัน */
 const RecipeLabel = (props) => {
    const navigation = useNavigation();
-   const [liked, setLiked] = useState(false);
+   const [liked, setLiked] = useState(props.like);
    
    const update =(like) => {
-    console.log('now')
     fetch('http://192.168.1.37:3410/api/recipes/update/'+props.id+'/'+like)
     //fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())
@@ -21,7 +20,8 @@ const RecipeLabel = (props) => {
   }
 
    const isLiked = () => {
-      setLiked(!liked)
+      setLiked(!liked);
+      update(!liked);
     }
   
    {/* เก็บ props ความยาก */}
