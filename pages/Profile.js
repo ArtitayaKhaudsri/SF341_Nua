@@ -34,13 +34,14 @@ const Profile = () => {
         console.log(error);
       }   
   }, [])
+    
     return (
       <SafeAreaView style = { styles.container }>
         <View>
           <TouchableOpacity> 
             <Image source={require('../assets/vector.png')} style={styles.vector}/>
           </TouchableOpacity>
-          <Text style={styles.accname}>Account name</Text>
+          <Text style={styles.accname}>{userName}</Text>
         </View>
 
         <View borderBottomColor= '#c7c7c7' borderBottomWidth= {StyleSheet.hairlineWidth} style={{top:"8%"}}/>
@@ -48,22 +49,11 @@ const Profile = () => {
         <View>
             <Octicon name={"heart-fill"} color="#C21010" size={21} style={{paddingLeft: "20%", paddingTop:"25%"}}>
                 <View style={styles.Fav}>
-                    <Text>Favourite(N)</Text>
+                    <Text>Favourite({count})</Text>
                 </View>
             </Octicon>
         </View>
-        <View>
-            <View style={{paddingLeft: "20%", paddingTop:"5%"}}>
-                <View>
-                    <View style={{position:"absolute"}}>
-                        <Image source={require('../assets/success.png')} style={{width:24, height:24}}/>
-                    </View>
-                    <View>
-                        <Text style={styles.succ}>Success(M)</Text>
-                    </View>
-                </View>
-            </View>
-        </View>
+
         <View>
             <TouchableOpacity style={styles.logoutBttn} onPress={() => onLogout()} >
                 <Text style={{color: "#C21010", fontWeight: "bold", alignSelf: "center"}}>Log out</Text>
