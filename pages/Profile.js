@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react';
+import React, { useEffect,useState } from 'react';
 import { TouchableOpacity, View, StyleSheet, Text, Image} from 'react-native';
 import Octicon from 'react-native-vector-icons/Octicons';
 import { useNavigation } from '@react-navigation/native';
