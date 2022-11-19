@@ -11,7 +11,7 @@ const RecipeLabel = (props) => {
    const [liked, setLiked] = useState(props.like);
    
    const update =(like) => {
-    fetch('http://192.168.1.37:3410/api/recipes/update/'+props.id+'/'+like)
+    fetch('http://192.168.1.34:3410/api/recipes/update/'+props.id+'/'+like)
     //fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())
     .then((json) => console.log(json))
@@ -39,7 +39,13 @@ const RecipeLabel = (props) => {
            style={styles.labelStyle}>
             
             {/* รูปอาหาร */}
-            <Image source={props.pic} style = {styles.foodPicStyle}/>
+            <Image source={props.pic == 1 ? require('../assets/food/kaidao.jpg') : 
+            props.pic == 2 ? require('../assets/food/tomzab.jpg'):
+            props.pic == 3 ? require('../assets/food/kalumple.jpg') : require('../assets/food/Yummy-sea-vermicelli.jpg')
+            } 
+            style = {styles.foodPicStyle}/>
+
+            {/* source={require('../assets/food/clearSoup.jpg')} */}
 
             {/* ปุ่มเพิ่มเข้า Favourite */}
             <TouchableOpacity 
