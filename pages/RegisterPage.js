@@ -31,7 +31,7 @@ const RegisterPage = () => {
     }
     if (success) {
       try {
-        await fetch('http://192.168.43.146:3410/register', requestOptions)
+        await fetch('http://192.168.0.111:3410/register', requestOptions)
           .then(response => {
             response.json()
               .then(data => {

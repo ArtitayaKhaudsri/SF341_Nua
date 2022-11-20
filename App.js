@@ -10,6 +10,8 @@ import MenuDeepFriedPage from './pages/MenuDeepFriedPage';
 import MenuOtherPage from './pages/MenuOtherPage';
 import Favorite from './pages/Favorite'
 import Profile from "./pages/Profile";
+import RecipePage from "./pages/RecipePage";
+import ProcessNoClock from "./pages/ProcessNoClock";
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +71,18 @@ function PageStack() {
         component={Favorite}
         options={{headerShown:false}}
       />
+
+        <Stack.Screen
+            name="RecipePage"
+            component={RecipePage}
+            options={{headerShown:false}}
+        />
+        <Stack.Screen
+            name="ProcessNoClock"
+            component={ProcessNoClock}
+            options={{headerShown:false}}
+        />
+
     </Stack.Navigator>
   )
 }

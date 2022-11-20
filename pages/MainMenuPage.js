@@ -22,7 +22,7 @@ const MainMenuPage = () => {
   const handlerfav = async () => {
       try {
         
-        await fetch('http://192.168.1.34:3410/fav', requestOptions)
+        await fetch('http://192.168.0.111:3410/fav', requestOptions)
           .then(response => {
             response.json()
               .then(data => {
@@ -35,7 +35,7 @@ const MainMenuPage = () => {
   };
 
   useEffect(() => {
-    fetch('http://192.168.1.34:3410/api/recipes')
+    fetch('http://192.168.0.111:3410/api/recipes')
     //fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())
     .then((json) => setData(json))
@@ -101,7 +101,7 @@ const MainMenuPage = () => {
         <Image source={require('../assets/home-fill.png')} style={{width: 20, height: 20, marginTop: 20}}/>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('RecipePage', {})}>
         <Octicon name={"flame"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
