@@ -7,8 +7,11 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 /* เป็นหน้า component ป้ายเมนูอาหาร มันจะรับค่ามาจากหน้าอื่นที่มาเรียกใช้มัน */
 const RecipeLabel2 = (props) => {
-   const navigation = useNavigation();
-   const [liked, setLiked] = useState(props.like);
+
+    const [loading,setLoading]= useState(true);
+    const [data,setData]= useState([]);
+    console.log(data);
+    const navigation = useNavigation();
    
    const update =(like) => {
     fetch('http://192.168.0.111:3410/api/recipes/update/'+props.id+'/'+like)
@@ -32,7 +35,7 @@ const RecipeLabel2 = (props) => {
    let page = props.toPage
 
     return (
-        <View style={{psdding:5}}>
+        <View >
 
             {/* รูปอาหาร */}
              <Image source={props.pic == 1 ? require('../assets/food/kaidao.jpg') :
@@ -121,9 +124,8 @@ const styles = StyleSheet.create({
     },
     labelStyle: {
       backgroundColor: "#E64848",
-      width: "80%", 
-      height: 190, 
-      alignSelf: "center", 
+      width: "80%",
+      height: 200,
       borderRadius: 10,
       shadowColor: "#000",
       elevation: 5, /* only worked on andriod */

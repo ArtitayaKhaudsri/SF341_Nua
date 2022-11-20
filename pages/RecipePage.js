@@ -3,6 +3,7 @@ import React, {useEffect,useState} from "react";
 import {StyleSheet, Text, Image, View, Platform, Button, FlatList} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import Octicon from 'react-native-vector-icons/Octicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import RecipeLabel from "./RecipeLabel";
 import TopNavigator from "./TopNavigator";
@@ -44,11 +45,15 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* TOP NAVIGATION */}
-      <View style={styles.topNaigationView}/>
-      {/* BACK BUTTON */}
-      <View >
+        <View>
+
+        </View>
         {/* ใส่เป็นไอคอนที่แนบไปให้ */}
-      </View>
+        <View>
+            <TouchableOpacity onPress={() => navigation.navigate('MainMenuPage', {})}>
+                <MaterialCommunityIcons name={"arrow-left-circle"} color="#000" size={28} style={styles.backArrow} />
+            </TouchableOpacity>
+        </View>
 
       {/* TITLE CONTAINER */}
       {/* ชื่ออาหาร */}
@@ -58,21 +63,17 @@ export default function App() {
               data = {data}
               keyExtractor = {({id}, index) => id}
               renderItem = {({ item }) => (
-                  <RecipeLabel2
-                      difficult={item.level}
-                      pic= {item.picture}
-                      title={item.menuName}
-                      description={item.title}
-                      time="ไม่เกิน 30 นาที"
-                      allergy= {item.foodAllergy}
+                  <FlatList>
 
-                  />
+
+
+
+
+                  </FlatList>
               )}
           />
         {/* Icon ที่ตองบอกเดี๋ยว Back มาใส่ */}
-        <View>
 
-        </View>
       </View>
 
       {/* LINE */}
@@ -122,8 +123,8 @@ export default function App() {
       </View>
 
 
-      <View style={styles.forButton} onPress = {() => navigation.navigate('ProcessNoClock', {})}>
-        <Button title="LET'S COOK!" color={'#83cc61'}/>
+      <View style={styles.forButton} >
+        <Button title="LET'S COOK!" color={'#83cc61'} onPress = {() => navigation.navigate('ProcessNoClock', {})}/>
       </View>
 
       {/* BOTTOM NAVIGATION */}
@@ -220,6 +221,65 @@ const styles = StyleSheet.create({
     },
     rawMaterials: {
         fontSize: 15
+    },
+    text: {
+        fontSize: 20,
+        textAlign: 'center',
+    },
+    viewTextStyle: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 20,
+        marginTop: 93
+    },
+    textStyle: {
+        color: "#000",
+        textShadowColor: "#000",
+        textShadowOffset: {
+            width: 1,
+            height: 2
+        },
+        textShadowRadius: 6,
+        shadowOpacity: 0.1,
+        fontSize: 23,
+        fontWeight: "500"
+    },
+    labelStyle: {
+        backgroundColor: "#E64848",
+        width: "80%",
+        height: 200,
+        borderRadius: 10,
+        shadowColor: "#000",
+        elevation: 5, /* only worked on andriod */
+        marginBottom: 20,
+        paddingBottom:30
+
+        /* below props only worked on ios */
+        //  shadowOpacity: 100,
+        //  shadowRadius: 4,
+        //  shadowOffset: {
+        //   width: 30,
+        //   height: -5
+        //  }
+    },
+    foodPicStyle: {
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+        alignSelf: "flex-start",
+        width: "100%",
+        height: 130
+    },
+    descriptionStyle: {
+        color: "#000",
+        marginLeft: 20,
+        marginTop: 10,
+        fontSize: 12
+    },
+    detailStyle: {
+        flexDirection: "row",
+        marginTop: 7,
+        justifyContent: 'space-between'
     }
 
 });

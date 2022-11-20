@@ -1,23 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Image, View, Platform, Button } from 'react-native';
+import React, {useEffect,useState} from "react";
+import {StyleSheet, Text, Image, View, Platform, Button, FlatList} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import Octicon from 'react-native-vector-icons/Octicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
+import RecipeLabel from "./RecipeLabel";
+import TopNavigator from "./TopNavigator";
+import RecipeLabel2 from "./RecipeLabel2";
+import {NavigationActions as navigation} from "react-navigation";
+import {useNavigation} from "@react-navigation/native";
+
+
+
 
 export default function App() {
+  const [loading,setLoading]= useState(true);
+  const [data,setData]= useState([]);
+  console.log(data);
+  const navigation = useNavigation();
+  useEffect(()=>{
+    fetch('http://192.168.0.111:3410/api/recipes')
+        .then((response)=>response.json())
+        .then((json) => {
+          let data = json.filter(i => i.menuName === 'ไข่เจียวหมูสับ');
+          setData(data)
+        })
+        .catch((error)=>console.error(error))
+        .finally(()=>setLoading(false));
+  },[])
+
   return (
     <View style={styles.container}>
       {/* TOP NAVIGATION */}
       <View style={styles.topNaigationView}>
-        <Text style={styles.stepText}>STEP N</Text>
-        <Text style={styles.menuText}>ชื่อเมนูอาหาร</Text>
+        <Text style={styles.stepText}>STEP 1</Text>
+        <FlatList
+          data = {data}
+          keyExtractor = {({id}, index) => id}
+          renderItem = {({ item }) => (
+
+              <Text style={styles.menuText}>
+
+                {"\n"}{item.menuName}</Text>
+          )}
+        />
       </View>
 
       {/* BACK BUTTON */}
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate('FriedPage', {})}>
+        <TouchableOpacity onPress={() => navigation.navigate('RecipePage', {})}>
           <Octicon name={"arrow-left"} color="#fff" size={28} style={styles.backArrow} />
         </TouchableOpacity>
+      </View>
+
+      <View>
+        <Image source={require('../assets/egg.png')} style={{width:180,height:180,paddingTop:"30%"}}/>
       </View>
 
       {/* NEXT BUTTON */}
@@ -27,7 +64,7 @@ export default function App() {
 
       {/* BOTTOM NAVIGATION */}
       <View style={styles.bottomNavigatorView}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('MainMenuPage', {})}>
           <Octicon name={"home"} color="#fff" size={21} style={styles.bottomNavigatorIcon} />
         </TouchableOpacity>
 
@@ -35,12 +72,12 @@ export default function App() {
           <FontAwesome name={"fire"} color="#fff" size={21} style={styles.bottomNavigatorIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon} />
+        <TouchableOpacity onPress = {() => navigation.navigate('Favorite', {})}>
+          <Octicon name={"heart"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Octicon name={"person"} color="#fff" size={21} style={styles.bottomNavigatorIcon} />
+        <TouchableOpacity onPress = {() => navigation.navigate('Profile', {})}>
+          <Octicon name={"person"} color="#fff" size={21} style={styles.bottomNavigatorIcon}/>
         </TouchableOpacity>
       </View>
     </View>
@@ -80,6 +117,7 @@ const styles = StyleSheet.create({
 
   menuText: {
     top: 5,
+    justifyContent:"center",
     color: '#fff'
   },
 
@@ -107,5 +145,12 @@ const styles = StyleSheet.create({
 
   bottomNavigatorIcon: {
     marginTop: 20
+  },
+  stepImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    alignItems:"center",
+
   }
 });
