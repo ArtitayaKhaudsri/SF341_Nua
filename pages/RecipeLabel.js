@@ -35,7 +35,7 @@ const RecipeLabel = (props) => {
         <View>
             <TouchableOpacity
                 /* เอาค่าที่ได้จากการเก็บ props ลิงค์ไปหน้าสูตรอาหารนั้น ๆ */
-                onPress={() => navigation.navigate(page, {})}
+                onPress={() => navigation.navigate('RecipePage', {})}
                 style={styles.labelStyle}>
 
                 {/* รูปอาหาร */}

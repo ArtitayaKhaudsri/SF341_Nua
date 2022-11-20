@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="more Recipe and ProcessNoClock">
-      <change afterPath="$PROJECT_DIR$/pages/ProcessNoClock2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/ProcessNoClock3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/ProcessNoClock4.js" afterDir="false" />
+    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="more Recipe and more ProcessNoClock">
+      <change afterPath="$PROJECT_DIR$/pages/RecipePage1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/RecipePage2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/RecipePage3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/ProcessNoClock.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ProcessNoClock.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/RecipeLabel.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RecipeLabel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/RecipePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RecipePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RegisterPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668940682013</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="more Recipe and more ProcessNoClock">
+      <created>1668961333141</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668961333142</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +117,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="connect api" />
     <MESSAGE value="more Recipe and ProcessNoClock" />
-    <option name="LAST_COMMIT_MESSAGE" value="more Recipe and ProcessNoClock" />
+    <MESSAGE value="more Recipe and more ProcessNoClock" />
+    <option name="LAST_COMMIT_MESSAGE" value="more Recipe and more ProcessNoClock" />
   </component>
 </project>

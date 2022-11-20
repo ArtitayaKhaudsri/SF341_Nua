@@ -35,7 +35,7 @@ export default function App() {
     fetch('http://192.168.0.111:3410/api/recipes')
         .then((response)=>response.json())
         .then((json) => {
-          let data = json.filter(i => i.menuName === 'ไข่เจียวหมูสับ');
+          let data = json.filter(i => i.menuName === 'ต้มแซ่บกระดูกหมู');
           setData(data)
         })
         .catch((error)=>console.error(error))
@@ -50,39 +50,31 @@ export default function App() {
         </View>
         {/* ใส่เป็นไอคอนที่แนบไปให้ */}
         <View>
-            <Image source={require('../assets/food/kaidao.jpg')} style={styles.stepImage}/>
-            <View style={{marginLeft:0,}}>
             <TouchableOpacity onPress={() => navigation.navigate('MainMenuPage', {})}>
                 <MaterialCommunityIcons name={"arrow-left-circle"} color="#000" size={28} style={styles.backArrow} />
             </TouchableOpacity>
-
-            </View>
-
         </View>
-
 
       {/* TITLE CONTAINER */}
       {/* ชื่ออาหาร */}
       <View style={styles.topContent}>
         {/* ใส่รูปตรงนี้ */}
-
           <FlatList
               data = {data}
               keyExtractor = {({id}, index) => id}
               renderItem = {({ item }) => (
-                  <Text style={{fontSize:20,paddingTop:85,paddingLeft:10}}>
-                      {item.menuName}{"\n"}
-                      <Text style={{fontSize:18}}>
-                          {item.title}
-                      </Text>
-                  </Text>
+                  <FlatList>
+
+
+
+
+
+                  </FlatList>
               )}
           />
-
-          </View>
         {/* Icon ที่ตองบอกเดี๋ยว Back มาใส่ */}
 
-
+      </View>
 
       {/* LINE */}
       <View style={{ borderBottomColor: '#c7c7c7', borderBottomWidth: StyleSheet.hairlineWidth}}/>
@@ -288,13 +280,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginTop: 7,
         justifyContent: 'space-between'
-    },
-    stepImage: {
-        width: 500,
-        height: 160,
-        position: "absolute",
-
-
     }
 
 });
