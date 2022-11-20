@@ -17,7 +17,7 @@ function PageStack() {
   return (
     <Stack.Navigator >
 
-      {/* <Stack.Screen 
+      <Stack.Screen
         name="LoginPage" 
         component={LoginPage} 
         options={{headerShown:false}}
@@ -27,7 +27,7 @@ function PageStack() {
         name="RegisterPage" 
         component={RegisterPage} 
         options={{headerShown:false}}
-      /> */}
+      />
 
       <Stack.Screen 
         name="MainMenuPage" 

@@ -5,26 +5,24 @@ import { useNavigation } from '@react-navigation/native';
 import {SafeAreaView} from 'react-navigation';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 const Profile = () => {
 
     const navigation = useNavigation();
-
     var c = 0;
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  const [userName, setUserName] = useState("")
+    const [userName, setUserName] = useState("")
 
-  useEffect(() => {
-    fetch('http://192.168.1.37:3410/api/recipes')
-    //fetch('https://jsonplaceholder.typicode.com/users')
-    .then((response) => response.json())
-    .then((json) => {json.forEach(element => {
+    useEffect(() => {
+        fetch('http://192.168.43.146:3410/api/recipes')
+        //fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => response.json())
+        .then((json) => {json.forEach(element => {
       
-      if(element.like){
-        console.log("x")
-        c = c+1;
-      }
+        if(element.like){
+            console.log("x")
+            c = c+1;
+        }
     });setCount(c);})
     .catch((error) => console.error(error));
       try {
@@ -36,7 +34,14 @@ const Profile = () => {
         console.log(error);
       }   
   }, [])
-    
+
+    const onLogout = async () => {
+       fetch('http://192.168.1.37:3410/logout')
+           .then((response) => response.json())
+           .then((data) => console.log(data));
+       navigation.navigate('LoginPage', {})
+    }
+
     return (
       <SafeAreaView style = { styles.container }>
         <View>

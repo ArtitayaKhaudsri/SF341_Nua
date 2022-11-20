@@ -26,7 +26,8 @@ const LoginPage = () => {
     })
     const data = await response.json()
     if (data.status === 'ok') {
-      
+      setUserName("")
+      setPassword("")
       try {
         await AsyncStorage.setItem(
           'username',
