@@ -16,7 +16,7 @@ const Profile = () => {
   const [userName, setUserName] = useState("")
 
   useEffect(() => {
-    fetch('http://192.168.0.111:3410/api/recipes')
+    fetch('http://192.168.1.37:3410/api/recipes')
     //fetch('https://jsonplaceholder.typicode.com/users')
     .then((response) => response.json())
     .then((json) => {json.forEach(element => {
