@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="connect api">
+    <list default="true" id="36090cca-bbf4-4c47-ac40-026d3a9f8f1b" name="Default Changelist" comment="more Recipe and ProcessNoClock">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/MainMenuPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/MainMenuPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/ProcessNoClock.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/ProcessNoClock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/RecipeLabel2.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RecipeLabel2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/RecipePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RecipePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667897327355</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="more Recipe and ProcessNoClock">
+      <created>1668936649123</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668936649123</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +99,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="connect api" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect api" />
+    <MESSAGE value="more Recipe and ProcessNoClock" />
+    <option name="LAST_COMMIT_MESSAGE" value="more Recipe and ProcessNoClock" />
   </component>
 </project>

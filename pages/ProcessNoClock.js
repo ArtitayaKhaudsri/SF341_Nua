@@ -33,6 +33,11 @@ export default function App() {
     <View style={styles.container}>
       {/* TOP NAVIGATION */}
       <View style={styles.topNaigationView}>
+        <View>
+          <TouchableOpacity onPress={() => navigation.navigate('RecipePage', {})}>
+            <Octicon name={"arrow-left"} color="#fff" size={28} style={styles.backArrow} />
+          </TouchableOpacity>
+        </View>
         <Text style={styles.stepText}>STEP 1</Text>
         <FlatList
           data = {data}
@@ -44,18 +49,13 @@ export default function App() {
                 {"\n"}{item.menuName}</Text>
           )}
         />
+
       </View>
 
       {/* BACK BUTTON */}
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate('RecipePage', {})}>
-          <Octicon name={"arrow-left"} color="#fff" size={28} style={styles.backArrow} />
-        </TouchableOpacity>
-      </View>
 
-      <View>
-        <Image source={require('../assets/egg.png')} style={{width:180,height:180,paddingTop:"30%"}}/>
-      </View>
+
+
 
       {/* NEXT BUTTON */}
       <View style={styles.forButton}>
@@ -68,7 +68,7 @@ export default function App() {
           <Octicon name={"home"} color="#fff" size={21} style={styles.bottomNavigatorIcon} />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress = {() => navigation.navigate('RecipePage', {})}>
           <FontAwesome name={"fire"} color="#fff" size={21} style={styles.bottomNavigatorIcon} />
         </TouchableOpacity>
 
@@ -95,30 +95,34 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     top: 0,
-    height: 126,
-    backgroundColor: '#C21010',
+    height: 100,
+    backgroundColor: '#c21010',
     position: 'absolute',
     justifyContent: 'space-evenly',
     flexDirection: 'column',
-    alignItems: 'center'
+
   },
 
   backArrow: {
     position: 'absolute',
-    left: 30.04,
-    top: 70,
+    left:5,
+    top: 10,
     width: 18.96,
   },
 
   stepText: {
-    top: 20,
-    color: '#fff'
+    top: 10,
+    left:180,
+    color: '#fff',
+    alignItems:'center'
   },
 
   menuText: {
     top: 5,
+    left:160,
     justifyContent:"center",
-    color: '#fff'
+    color: '#fff',
+    alignItems:'center'
   },
 
   forButton:{
