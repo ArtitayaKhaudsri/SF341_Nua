@@ -112,10 +112,10 @@ export default function App() {
             data = {data}
             keyExtractor = {({id}, index) => id}
             renderItem = {({ item }) => (
-                <Text>1.{item.step1}{"\n"}
-                  2.{item.step2}{"\n"}
-                  3.{item.step3}{"\n"}
-                  4.{item.step4}{"\n"}
+                <Text>1.{item.steps1}{"\n"}
+                  2.{item.steps2}{"\n"}
+                  3.{item.steps3}{"\n"}
+                  4.{item.steps4}{"\n"}
                 </Text>
 
             )}

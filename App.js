@@ -12,7 +12,9 @@ import Favorite from './pages/Favorite'
 import Profile from "./pages/Profile";
 import RecipePage from "./pages/RecipePage";
 import ProcessNoClock from "./pages/ProcessNoClock";
-
+import ProcessNoClock2 from "./pages/ProcessNoClock2";
+import ProcessNoClock3 from "./pages/ProcessNoClock3";
+import ProcessNoClock4 from "./pages/ProcessNoClock4";
 const Stack = createNativeStackNavigator();
 
 function PageStack() {
@@ -82,7 +84,21 @@ function PageStack() {
             component={ProcessNoClock}
             options={{headerShown:false}}
         />
-
+        <Stack.Screen
+            name="ProcessNoClock2"
+            component={ProcessNoClock2}
+            options={{headerShown:false}}
+        />
+        <Stack.Screen
+            name="ProcessNoClock3"
+            component={ProcessNoClock3}
+            options={{headerShown:false}}
+        />
+        <Stack.Screen
+            name="ProcessNoClock4"
+            component={ProcessNoClock4}
+            options={{headerShown:false}}
+        />
     </Stack.Navigator>
   )
 }

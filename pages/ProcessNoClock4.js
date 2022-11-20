@@ -34,11 +34,11 @@ export default function App() {
       {/* TOP NAVIGATION */}
       <View style={styles.topNavigationView}>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('RecipePage', {})}>
+          <TouchableOpacity onPress={() => navigation.navigate('ProcessNoClock', {})}>
             <Octicon name={"arrow-left"} color="#fff" size={28} style={styles.backArrow}  />
           </TouchableOpacity>
         </View>
-        <Text style={styles.stepText}>STEP 1</Text>
+        <Text style={styles.stepText}>STEP 4</Text>
         <FlatList
           data = {data}
           keyExtractor = {({id}, index) => id}
@@ -53,27 +53,25 @@ export default function App() {
       </View>
 
       {/* BACK BUTTON */}
-      <View>
+      <View style={{}}>
         <FlatList
             data = {data}
             keyExtractor = {({id}, index) => id}
             renderItem = {({ item }) => (
 
-                <Text style={{paddingTop:'40%',paddingLeft:'10%',fontSize:20}}>
-                  {item.steps1}</Text>
+                <Text style={{paddingTop:'40%',paddingLeft:'5%',wordWrap:'wrap',fontSize:20}}>
+                  {item.steps4}</Text>
             )}
         />
       </View>
-
       <View>
-        <Image source={require('../assets/egg.png')} style={styles.stepImage}/>
+        <Image source={require('../assets/plating.png')} style={styles.stepImage}/>
       </View>
-
 
 
       {/* NEXT BUTTON */}
       <View style={styles.forButton}>
-        <Button title='ถัดไป  >' color={'#83cc61'} onPress = {() => navigation.navigate('ProcessNoClock2', {})}/>
+        <Button title='Home' color={'#83cc61'} onPress = {() => navigation.navigate('MainMenuPage', {})}/>
       </View>
 
       {/* BOTTOM NAVIGATION */}
@@ -128,7 +126,9 @@ const styles = StyleSheet.create({
     top: 10,
     color: '#fff',
     textAlign:'center',
-    fontSize:20
+    fontSize:20,
+    flex:1,
+    flexWrap:'wrap'
   },
 
   menuText: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   stepImage: {
     width: 200,
     height: 200,
-    borderRadius: 100,
+
     marginTop:50,
     alignSelf:"center",
 

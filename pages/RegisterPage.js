@@ -52,7 +52,7 @@ const RegisterPage = () => {
         <View style={styles.container}>
 
             {/* Back button to Login page */}
-            <TouchableOpacity onPress = {() => navigation.navigate('LoginPage', {})}>
+          <TouchableOpacity onPress = {() => navigation.navigate('LoginPage', {})}>
                 <Icon style={{marginLeft: 30, marginTop: 40}} name="arrow-left" size={25} color="#fff"/>
             </TouchableOpacity>
 
@@ -94,7 +94,7 @@ const RegisterPage = () => {
             <TouchableOpacity style={styles.loginBttn} onPress = {()=>handlerRegister()}>
               <Text style={{color: "#fff", fontWeight: "bold", alignSelf: "center"}}>Register</Text>
             </TouchableOpacity>
-  
+
 
             {/* ตรงส่วนปุ่มเชื่อมกับ google account ถ้าไม่ใช้แล้วแน่ ๆ ก็ลบออกได้เลย */}
             {/* <View style={{alignItems: "center", flexDirection: 'row', justifyContent: "center", marginVertical: 25}}>

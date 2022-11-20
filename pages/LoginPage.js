@@ -14,7 +14,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("")
 
   const handleLogin = async () => {
-    const response = await fetch('http://192.168.43.146:3410/login', {
+    const response = await fetch('http://192.168.0.111:3410/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
